@@ -1,0 +1,44 @@
+---
+services:
+
+  wordpress:
+    image: wordpress:latest
+    restart: no
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - wordpress:/var/www/html
+    links:
+    - db
+
+  db:
+    image: mariadb:latest
+    restart: no
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_USER: wordpress
+      MARIADB_PASSWORD: wordpress
+      MARIADB_DATABASE: wordpress
+    volumes:
+      - db:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: root
+    ports:
+      - "8081:80"
+    links:
+      - db
+
+volumes:
+  wordpress:
+  db:
