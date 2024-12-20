@@ -18,3 +18,7 @@ declare(strict_types=1);
 
 const MZTX_WP_PLUGIN_UPDATE_TEST_PLUGIN_MANIFEST_URL = 'https://mztxde.github.io/mztx-wp-plugin-update-test/manifest.json';
 const MZTX_WP_PLUGIN_UPDATE_TEST_PLUGIN_VERSION = '{{ version }}';
+
+require_once __DIR__ . '/update.php';
+
+$mztxWpPluginUpdateTestUpdater = new \mztx\WpPluginUpdateTest\Updater();
