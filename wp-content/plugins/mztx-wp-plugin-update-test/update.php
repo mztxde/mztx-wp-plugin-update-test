@@ -26,7 +26,7 @@ class Updater
         add_action('upgrader_process_complete', [$this, 'purge'], 10, 2);
     }
 
-    public function request(): object
+    public function request(): mixed
     {
         $remote = get_transient($this->cache_key);
 
@@ -50,7 +50,7 @@ class Updater
 
     }
 
-    function info($response, $action, $args): object
+    function info($response, $action, $args): mixed
     {
         // do nothing if you're not getting plugin information right now
         if ('plugin_information' !== $action) {
@@ -102,7 +102,7 @@ class Updater
 
     }
 
-    public function update($transient): object
+    public function update($transient): mixed
     {
         if (empty($transient->checked)) {
             return $transient;
