@@ -1,0 +1,24 @@
+{
+    "name": "mztx Plugin Update Test",
+    "slug": "mztx-wp-plugin-update-test",
+    "author": "<a href='https:\/\/mztx.de'>Michael Zapf<\/a>",
+    "author_profile": "https:\/\/mztx.de",
+    "donate_link": "https:\/\/mztx.de",
+    "version": "v0.1.0-test1",
+    "download_url": "https:\/\/github.com\/mztxde\/mztx-wp-plugin-update-test\/releases\/download\/v0.1.0-test1\/mztx-wp-plugin-update-test.zip",
+    "requires": "5.6",
+    "tested": "6.1",
+    "requires_php": "8.3",
+    "added": "2024-12-20 07:00:00",
+    "last_updated": "2024-12-20 10:14:56",
+    "homepage": "https:\/\/mztx.de",
+    "sections": {
+        "description": "Nur ein Test. Hat keine sinnvolle Funktionalit\u00e4t, au\u00dfer, dass es sich selbst updaten kann.",
+        "installation": "Aktivieren, that's it. Eigentlich ist nichtmal das notwendig\u2026",
+        "changelog": "TODO"
+    },
+    "banners": {
+        "low": "https:\/\/github.com\/mztxde\/mztx-wp-plugin-update-test\/blob\/master\/assets\/undraw_update_jvp1.png",
+        "high": "https:\/\/github.com\/mztxde\/mztx-wp-plugin-update-test\/blob\/master\/assets\/undraw_update_jvp1.svg"
+    }
+}
