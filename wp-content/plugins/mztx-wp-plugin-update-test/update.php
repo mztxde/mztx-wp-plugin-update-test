@@ -18,7 +18,7 @@ readonly class Updater
 
     public function plugin_update_handler($updateInfo, $pluginHeaders, $pluginFile, $language)
     {
-        $requestedSlug = basename($pluginFile);
+        $requestedSlug = basename(dirname($pluginFile));
         if ($requestedSlug !== $this->slug) {
             return false;
         }
