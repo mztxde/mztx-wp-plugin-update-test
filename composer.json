@@ -1,0 +1,15 @@
+{
+    "name": "mztxde/mztx-wp-plugin-update-test",
+    "description": "Testing Wordpress Plugin updates via GitHub",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Michael Zapf",
+            "email": "m.zapf@mztx.de"
+        }
+    ],
+    "require": {
+        "php": ">=8.3"
+    }
+}

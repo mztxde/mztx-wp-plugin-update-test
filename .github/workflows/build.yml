@@ -1,0 +1,55 @@
+name: Build
+on:
+  push: ~
+#  pull_request:
+#    branches:
+#      - main
+
+jobs:
+  package:
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Write revision file
+        run: |
+          export VERSION="${GITHUB_REF#refs/*/}"
+          echo "$VERSION" > wp-content/plugins/mztx-wp-plugin-update-test/REVISION
+          sed -i "s/{{[[:space:]]*version[[:space:]]*}}/$VERSION/g" wp-content/plugins/mztx-wp-plugin-update-test/mztx-wp-plugin-update-test.php
+
+      - name: Package release file
+        run: |
+          mkdir dist
+          cd wp-content/plugins/mztx-wp-plugin-update-test
+          zip ../../../dist/mztx-wp-plugin-update-test.zip *
+
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Release ${{ github.ref }}
+          body: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+          files: dist/mztx-wp-plugin-update-test.zip
+
+      - name: Create pages dist
+        run: mkdir ./dist_pages
+
+      - name: Write manifest
+        run: |
+          export VERSION="${GITHUB_REF#refs/*/}"
+          export DOWNLOAD_URL="${{ fromJSON(steps.create_release.outputs.assets)[0].browser_download_url }}"
+          php build_plugin_manifest.php ./etc/manifest.tpl.json > ./dist_pages/manifest.json
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist_pages # The folder the action should deploy.
