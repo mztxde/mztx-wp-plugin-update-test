@@ -1,4 +1,11 @@
 {
-    "version": "0.2.12",
-    "package": "https:\/\/github.com\/mztxde\/mztx-wp-plugin-update-test\/releases\/download\/v0.2.12\/mztx-wp-plugin-update-test.zip"
+    "version": "0.2.14",
+    "package": "https:\/\/github.com\/mztxde\/mztx-wp-plugin-update-test\/releases\/download\/v0.2.14\/mztx-wp-plugin-update-test.zip",
+    "autoupdate": true,
+    "requires_php": "8.3",
+    "tested": "6.1",
+    "banners": {
+        "low": "https:\/\/github.com\/mztxde\/mztx-wp-plugin-update-test\/blob\/master\/assets\/undraw_update_jvp1.png",
+        "high": "https:\/\/github.com\/mztxde\/mztx-wp-plugin-update-test\/blob\/master\/assets\/undraw_update_jvp1.svg"
+    }
 }
