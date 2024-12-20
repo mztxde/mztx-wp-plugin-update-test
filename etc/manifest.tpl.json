@@ -1,4 +1,11 @@
 {
   "version": "{{ version }}",
-  "package": "{{ download_url }}"
+  "package": "{{ download_url }}",
+  "autoupdate": true,
+  "requires_php": "8.3",
+  "tested": "6.1",
+  "banners": {
+    "low": "https://github.com/mztxde/mztx-wp-plugin-update-test/blob/master/assets/undraw_update_jvp1.png",
+    "high": "https://github.com/mztxde/mztx-wp-plugin-update-test/blob/master/assets/undraw_update_jvp1.svg"
+  }
 }
