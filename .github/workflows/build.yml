@@ -20,7 +20,7 @@ jobs:
 
       - name: Write revision file
         run: |
-          export VERSION="${GITHUB_REF#refs/*/}"
+          export VERSION="${GITHUB_REF#refs/*/v}"
           echo "$VERSION" > wp-content/plugins/mztx-wp-plugin-update-test/REVISION
           sed -i "s/{{[[:space:]]*version[[:space:]]*}}/$VERSION/g" wp-content/plugins/mztx-wp-plugin-update-test/mztx-wp-plugin-update-test.php
 
@@ -45,7 +45,7 @@ jobs:
 
       - name: Write manifest
         run: |
-          export VERSION="${GITHUB_REF#refs/*/}"
+          export VERSION="${GITHUB_REF#refs/*/v}"
           export DOWNLOAD_URL="${{ fromJSON(steps.create_release.outputs.assets)[0].browser_download_url }}"
           php build_plugin_manifest.php ./etc/manifest.tpl.json > ./dist_pages/manifest.json
 
